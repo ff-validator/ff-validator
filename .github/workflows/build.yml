@@ -1,9 +1,9 @@
-name: test rules
+name: Test and Build
 
 on: [push, pull_request]
 
 jobs:
-  lint:
+  test:
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -13,6 +13,9 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: ${{ matrix.node-version }}
-      - run: npm ci
-      - run: npm run stylelint-valid
-      - run: npm test
+      - name: Install
+        run: npm ci
+      - name: Test
+        run: npm test
+      - name: Build
+        run: npm run build
