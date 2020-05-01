@@ -1,0 +1,27 @@
+{
+  "name": "ff-validator",
+  "version": "0.0.1-prealpha",
+  "description": "Customizable validation rules",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "exit 0",
+    "build": "exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ff-validator/ff-validator.git"
+  },
+  "keywords": [
+    "Validation",
+    "Validator",
+    "Typescript",
+    "Final Form",
+    "React Final Form"
+  ],
+  "author": "Oleg Dutchenko <dutchenko.o.dev@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ff-validator/ff-validator/issues"
+  },
+  "homepage": "https://github.com/ff-validator/ff-validator#readme"
+}

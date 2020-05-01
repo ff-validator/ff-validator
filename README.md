@@ -1,2 +1,5 @@
 # ff-validator
-Customizable validation rules
+
+![types](https://img.shields.io/badge/types-TypeScript-blue)
+
+> Customizable validation rules
