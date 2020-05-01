@@ -1,11 +1,43 @@
 {
   "name": "ff-validator",
-  "version": "0.0.1-prealpha",
+  "version": "0.0.2-prealpha",
   "description": "Customizable validation rules",
   "main": "dist/index.js",
   "scripts": {
-    "test": "exit 0",
-    "build": "exit 0"
+    "test": "npm run prettier && npm run eslint",
+    "build": "tsc",
+    "fix": "npm run prettier -- --write && npm run eslint -- --fix",
+    "eslint": "eslint src/**/*.ts --cache --cache-location .cache/.eslintcache",
+    "prettier": "prettier src/**/*.ts --check"
+  },
+  "jest": {
+    "cacheDirectory": "<rootDir>/.cache/jest",
+    "runner": "jest-runner-tsc",
+    "displayName": "tsc",
+    "moduleFileExtensions": [
+      "ts"
+    ],
+    "coverageReporters": [
+      "json-summary",
+      "lcov"
+    ]
+  },
+  "eslintConfig": {
+    "root": true,
+    "extends": [
+      "wezom-relax-ts",
+      "plugin:prettier/recommended"
+    ]
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "bracketSpacing": true,
+    "printWidth": 90,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "none",
+    "tabWidth": 4,
+    "useTabs": true
   },
   "repository": {
     "type": "git",
@@ -25,6 +57,17 @@
   },
   "homepage": "https://github.com/ff-validator/ff-validator#readme",
   "devDependencies": {
+    "@types/jest": "^25.2.1",
+    "@typescript-eslint/eslint-plugin": "^2.30.0",
+    "@typescript-eslint/parser": "^2.30.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-wezom-relax-ts": "^0.3.1-beta",
+    "eslint-plugin-flowtype": "^4.7.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "jest": "^25.5.3",
+    "jest-runner-tsc": "^1.6.0",
     "prettier": "^2.0.5",
     "typescript": "^3.8.3"
   }
