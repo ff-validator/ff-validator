@@ -6,6 +6,7 @@
   "scripts": {
     "test": "npm run prettier && npm run eslint",
     "build": "tsc",
+    "postbuild": "prettier dist/**/*.{d.ts,js} --check --write",
     "fix": "npm run prettier -- --write && npm run eslint -- --fix",
     "eslint": "eslint src/**/*.ts --cache --cache-location .cache/.eslintcache",
     "prettier": "prettier src/**/*.ts --check"

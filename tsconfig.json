@@ -4,6 +4,7 @@
 		"isolatedModules": true,
 		"module": "commonjs",
 		"baseUrl": "src",
+		"strict": true,
 		"outDir": "dist"
 	},
 	"include": [
