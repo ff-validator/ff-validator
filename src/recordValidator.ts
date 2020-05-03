@@ -16,7 +16,7 @@ interface IPlainObject<GValue = any> {
 export default async function <GValue = any, GAllValues = GValue, GMeta = GValue>(
 	allValues: IPlainObject,
 	allRules: IPlainObject<(IValidFn | null)[]>
-): Promise<{[p: string]: string}> {
+): Promise<{ [p: string]: string }> {
 	const errors: IPlainObject<string> = {};
 	for (const name in allRules) {
 		if (allRules.hasOwnProperty(name)) {

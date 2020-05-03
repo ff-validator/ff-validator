@@ -8,5 +8,7 @@ import { isValid, IValidFn } from '../../core';
 // Rule
 // -----------------------------------------------------------------------------
 
-export const equalTo = (errorMessage: string, name: string): IValidFn => (value, allValues) =>
-	isValid(value === allValues[name], errorMessage);
+export const equalTo = (errorMessage: string, name: string): IValidFn => (
+	value,
+	allValues
+) => isValid(value === allValues[name], errorMessage);

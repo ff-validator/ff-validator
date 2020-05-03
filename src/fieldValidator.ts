@@ -28,7 +28,7 @@ export default function <GValue = any, GAllValues = GValue, GMeta = GValue>(
 	const rules: IValidFn[] = rulesList.filter((rule) => rule != null) as IValidFn[];
 	return async (value, allValues, ...meta) => {
 		let result: string | undefined;
-		let hasRequiredRule: boolean = false;
+		let hasRequiredRule = false;
 		const length = rules.length;
 		for (let i = 0; i < length; i++) {
 			if (rules[i].ruleName === requiredRuleName) {
@@ -38,11 +38,7 @@ export default function <GValue = any, GAllValues = GValue, GMeta = GValue>(
 		}
 		if (hasValue(value) || hasRequiredRule) {
 			for (let i = 0; i < length; i++) {
-				const { valid, errorMessage } = await rules[i](
-					value,
-					allValues,
-					meta
-				);
+				const { valid, errorMessage } = await rules[i](value, allValues, meta);
 				if (valid === false) {
 					result = errorMessage || 'Error!';
 					break;

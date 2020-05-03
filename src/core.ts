@@ -8,11 +8,7 @@ export interface IValidResult {
 }
 
 export interface IValidFn<GValue = any, GAllValues = GValue, GMeta = GValue> {
-	(
-		value: GValue,
-		allValues: { [p: string]: GAllValues },
-		meta?: GMeta[]
-	): IValidResult;
+	(value: GValue, allValues: { [p: string]: GAllValues }, meta?: GMeta[]): IValidResult;
 	ruleName?: string;
 }
 
