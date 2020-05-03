@@ -1,8 +1,11 @@
 {
   "name": "ff-validator",
-  "version": "0.1.0-beta",
+  "version": "0.1.1-beta",
   "description": "Customizable validation rules",
   "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "npm run prettier && npm run eslint && npm run jest",
     "build": "tsc",
