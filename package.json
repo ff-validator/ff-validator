@@ -4,23 +4,22 @@
   "description": "Customizable validation rules",
   "main": "dist/index.js",
   "scripts": {
-    "test": "npm run prettier && npm run eslint",
+    "test": "npm run prettier && npm run eslint && npm run jest",
     "build": "tsc",
     "postbuild": "prettier dist/**/*.{d.ts,js} --check --write",
-    "fix": "npm run prettier -- --write && npm run eslint -- --fix",
+    "fix": "npm run prettier -- --write && npm run eslint -- --fix && npm run jest",
     "eslint": "eslint src/**/*.ts --cache --cache-location .cache/.eslintcache",
-    "prettier": "prettier src/**/*.ts --check"
+    "prettier": "prettier src/**/*.ts --check",
+    "jest": "jest"
   },
   "jest": {
     "cacheDirectory": "<rootDir>/.cache/jest",
     "runner": "jest-runner-tsc",
     "displayName": "tsc",
+    "coverageDirectory": "coverage",
+    "testEnvironment": "node",
     "moduleFileExtensions": [
       "ts"
-    ],
-    "coverageReporters": [
-      "json-summary",
-      "lcov"
     ]
   },
   "eslintConfig": {
