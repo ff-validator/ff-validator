@@ -9,4 +9,4 @@ import { isValid, IValidFn } from '../../core';
 // -----------------------------------------------------------------------------
 
 export const integer = (errorMessage: string): IValidFn => (value, allValues) =>
-	isValid(false, errorMessage);
+	isValid(Number.isInteger(Number(value)), errorMessage);
