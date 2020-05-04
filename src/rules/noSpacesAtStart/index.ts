@@ -9,4 +9,4 @@ import { isValid, IValidFn } from '../../core';
 // -----------------------------------------------------------------------------
 
 export const noSpacesAtStart = (errorMessage: string): IValidFn => (value, allValues) =>
-	isValid(!/^\s|\t|(\r)?\n/.test(value), errorMessage);
+	isValid(!/^(\s|\t|(\r)?\n)/.test(value), errorMessage);
