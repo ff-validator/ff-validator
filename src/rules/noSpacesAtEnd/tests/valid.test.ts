@@ -9,10 +9,7 @@ import { noSpacesAtEnd } from '../index';
 // -----------------------------------------------------------------------------
 
 describe('Valid noSpacesAtEnd', () => {
-	[
-		'Lorem',
-		'Lorem ipsum',
-	].forEach((content, i) => {
+	['Lorem', 'Lorem ipsum'].forEach((content, i) => {
 		test(`test #${++i}: ${content}`, () => {
 			const validate = noSpacesAtEnd('error');
 			const { valid, errorMessage } = validate(content, {});
