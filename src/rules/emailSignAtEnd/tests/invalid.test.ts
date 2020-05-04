@@ -10,7 +10,7 @@ import { emailSignAtEnd } from '../index';
 
 describe('Invalid ends with "@" in emails', () => {
 	['site.mail@'].forEach((email, i) => {
-		it(`test #${++i}: ${email}`, () => {
+		test(`test #${++i}: ${email}`, () => {
 			const validate = emailSignAtEnd('error');
 			const { valid, errorMessage } = validate(email, {});
 			expect(valid).toBeFalsy();

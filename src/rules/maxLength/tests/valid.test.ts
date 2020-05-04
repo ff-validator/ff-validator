@@ -8,7 +8,7 @@ import { maxLength } from '../index';
 // Rule
 // -----------------------------------------------------------------------------
 
-describe('Should be valid', () => {
+describe('Valid max length', () => {
 	[
 		'In 1985 Aldus Corporation',
 		'Do you like Cheese Whiz?',
@@ -16,7 +16,7 @@ describe('Should be valid', () => {
 		new Array(20).fill(null),
 		new Array(30).fill(null)
 	].forEach((content, i) => {
-		it(`test #${++i}: ${content}`, () => {
+		test(`test #${++i}: ${content}`, () => {
 			const validate = maxLength('error', 30);
 			const { valid, errorMessage } = validate(content, {});
 			expect(valid).toBeTruthy();

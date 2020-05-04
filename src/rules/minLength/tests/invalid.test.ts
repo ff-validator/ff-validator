@@ -8,9 +8,9 @@ import { minLength } from '../index';
 // Rule
 // -----------------------------------------------------------------------------
 
-describe('Should be invalid', () => {
+describe('Invalid min length', () => {
 	['In', 'D?', "T'", [null, null]].forEach((content, i) => {
-		it(`test #${++i}: ${content}`, () => {
+		test(`test #${++i}: ${content}`, () => {
 			const validate = minLength('error', 3);
 			const { valid, errorMessage } = validate(content, {});
 			expect(valid).toBeFalsy();

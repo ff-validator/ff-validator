@@ -2,20 +2,19 @@
 // Deps
 // -----------------------------------------------------------------------------
 
-import { number } from '../index';
+import { integer } from '../index';
 
 // -----------------------------------------------------------------------------
 // Rule
 // -----------------------------------------------------------------------------
 
-describe('Invalid number', () => {
-	['100,345', '99xx'].forEach((content, i) => {
+describe('Valid integer', () => {
+	['100', 100, -78, '60'].forEach((content, i) => {
 		test(`test #${++i}: ${content}`, () => {
-			const validate = number('error');
+			const validate = integer('error');
 			const { valid, errorMessage } = validate(content, {});
-			expect(valid).toBeFalsy();
-			expect(errorMessage).toBeDefined();
-			expect((errorMessage || '').length).toBeGreaterThan(0);
+			expect(valid).toBeTruthy();
+			expect(errorMessage).toBeUndefined();
 		});
 	});
 });

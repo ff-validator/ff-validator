@@ -8,9 +8,9 @@ import { required } from '../index';
 // Rule
 // -----------------------------------------------------------------------------
 
-describe('Should be invalid', () => {
+describe('Invalid required', () => {
 	['', null, false, undefined, NaN, []].forEach((content, i) => {
-		it(`test #${++i}: ${content}`, () => {
+		test(`test #${++i}: ${content}`, () => {
 			const validate = required('error');
 			const { valid, errorMessage } = validate(content, {});
 			expect(valid).toBeFalsy();

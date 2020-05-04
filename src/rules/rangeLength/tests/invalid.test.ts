@@ -8,10 +8,10 @@ import { rangeLength } from '../index';
 // Rule
 // -----------------------------------------------------------------------------
 
-describe('Should be invalid', () => {
+describe('Invalid range length', () => {
 	['0123', '01234567891', new Array(2).fill(null), new Array(12).fill(null)].forEach(
 		(content, i) => {
-			it(`test #${++i} ${content}`, () => {
+			test(`test #${++i} ${content}`, () => {
 				const validate = rangeLength('error', 5, 10);
 				const { valid, errorMessage } = validate(content, {});
 				expect(valid).toBeFalsy();

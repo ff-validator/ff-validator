@@ -2,11 +2,11 @@
 // Deps
 // -----------------------------------------------------------------------------
 
-import { isValid, IValidFn } from '../../core';
+import { isNumber, isValid, IValidFn } from '../../core';
 
 // -----------------------------------------------------------------------------
 // Rule
 // -----------------------------------------------------------------------------
 
 export const integer = (errorMessage: string): IValidFn => (value, allValues) =>
-	isValid(false, errorMessage);
+	isValid(isNumber(value) && Number.isInteger(Number(value)), errorMessage);

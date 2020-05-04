@@ -8,14 +8,14 @@ import { noSpacesAtStart } from '../index';
 // Rule
 // -----------------------------------------------------------------------------
 
-describe('Should be invalid', () => {
+describe('Invalid noSpacesAtStart', () => {
 	[
 		'   D?',
 		'  0в',
 		`
 lorem`
 	].forEach((content, i) => {
-		it(`test #${++i}: ${content}`, () => {
+		test(`test #${++i}: ${content}`, () => {
 			const validate = noSpacesAtStart('error');
 			const { valid, errorMessage } = validate(content, {});
 			expect(valid).toBeFalsy();

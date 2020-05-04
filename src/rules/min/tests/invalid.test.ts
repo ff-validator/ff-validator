@@ -8,9 +8,9 @@ import { min } from '../index';
 // Rule
 // -----------------------------------------------------------------------------
 
-describe('Should be invalid', () => {
+describe('Invalid min number', () => {
 	['2', '1', 2, 'Text', null, undefined, true].forEach((content, i) => {
-		it(`test #${++i}: ${content}`, () => {
+		test(`test #${++i}: ${content}`, () => {
 			const validate = min('error', 3);
 			const { valid, errorMessage } = validate(content, {});
 			expect(valid).toBeFalsy();

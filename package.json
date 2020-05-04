@@ -1,8 +1,8 @@
 {
   "name": "ff-validator",
-  "version": "0.1.4-beta",
+  "version": "0.2.0-beta",
   "description": "Customizable validation rules",
-  "main": "dist/index.js",
+  "main": "dist/fieldValidator.js",
   "files": [
     "dist"
   ],
@@ -17,12 +17,18 @@
   },
   "jest": {
     "cacheDirectory": "<rootDir>/.cache/jest",
-    "runner": "jest-runner-tsc",
     "displayName": "tsc",
     "testEnvironment": "node",
     "moduleFileExtensions": [
-      "ts"
-    ]
+      "js",
+      "ts",
+      "node"
+    ],
+    "transform": {
+      "\\.ts": [
+        "ts-jest"
+      ]
+    }
   },
   "eslintConfig": {
     "root": true,
@@ -69,8 +75,8 @@
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-prettier": "^3.1.3",
     "jest": "^25.5.3",
-    "jest-runner-tsc": "^1.6.0",
     "prettier": "^2.0.5",
+    "ts-jest": "^25.4.0",
     "typescript": "^3.8.3"
   }
 }

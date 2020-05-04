@@ -8,9 +8,9 @@ import { range } from '../index';
 // Rule
 // -----------------------------------------------------------------------------
 
-describe('Should be invalid', () => {
+describe('Invalid range', () => {
 	['3', '12', 20, 'Text', null, undefined, true].forEach((content, i) => {
-		it(`test #${++i} ${content}`, () => {
+		test(`test #${++i} ${content}`, () => {
 			const validate = range('error', 5, 10);
 			const { valid, errorMessage } = validate(content, {});
 			expect(valid).toBeFalsy();
