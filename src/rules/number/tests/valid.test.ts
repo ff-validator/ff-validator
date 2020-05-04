@@ -9,7 +9,7 @@ import { number } from '../index';
 // -----------------------------------------------------------------------------
 
 describe('Valid number', () => {
-	['100', 100.5, -78, '60.78', '-60.78'].forEach((content, i) => {
+	['100', 100.5, -78, '60.78', '-60.78', '+308'].forEach((content, i) => {
 		test(`test #${++i}: ${content}`, () => {
 			const validate = number('error');
 			const { valid, errorMessage } = validate(content, {});

@@ -1,8 +1,8 @@
 {
   "name": "ff-validator",
-  "version": "0.1.4-beta",
+  "version": "0.2.0-beta",
   "description": "Customizable validation rules",
-  "main": "dist/index.js",
+  "main": "dist/fieldValidator.js",
   "files": [
     "dist"
   ],
