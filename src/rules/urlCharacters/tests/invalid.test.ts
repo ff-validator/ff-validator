@@ -9,11 +9,7 @@ import { urlCharacters } from '../index';
 // -----------------------------------------------------------------------------
 
 describe('Invalid url characters', () => {
-	[
-		'my site',
-		'this^is',
-		'мой-сайт.ком'
-	].forEach((url, i) => {
+	['my site', 'this^is', 'мой-сайт.ком'].forEach((url, i) => {
 		test(`test #${++i}: ${url}`, () => {
 			const validate = urlCharacters('error');
 			const { valid, errorMessage } = validate(url, {});

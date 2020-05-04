@@ -10,5 +10,3 @@ import { isValid, IValidFn } from '../../core';
 
 export const urlCharacters = (errorMessage: string): IValidFn => (value, allValues) =>
 	isValid(/^[A-Za-z0-9_.~\-:\/?#\[\]@!$&'()*+,;=]+$/.test(value), errorMessage);
-
-
