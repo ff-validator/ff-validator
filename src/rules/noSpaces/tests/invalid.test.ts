@@ -8,7 +8,7 @@ import { noSpaces } from '../index';
 // Rule
 // -----------------------------------------------------------------------------
 
-describe('Should be invalid', () => {
+describe('Invalid noSpaces', () => {
 	[
 		'I n',
 		'x  ',
@@ -16,7 +16,7 @@ describe('Should be invalid', () => {
 		`sdf
 sdf`
 	].forEach((content, i) => {
-		it(`test #${++i}: ${content}`, () => {
+		test(`test #${++i}: ${content}`, () => {
 			const validate = noSpaces('error');
 			const { valid, errorMessage } = validate(content, {});
 			expect(valid).toBeFalsy();

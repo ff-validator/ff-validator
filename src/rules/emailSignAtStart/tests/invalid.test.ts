@@ -10,7 +10,7 @@ import { emailSignAtStart } from '../index';
 
 describe('Invalid starts with "@" in emails', () => {
 	['@mail.com'].forEach((email, i) => {
-		it(`test #${++i}: ${email}`, () => {
+		test(`test #${++i}: ${email}`, () => {
 			const validate = emailSignAtStart('error');
 			const { valid, errorMessage } = validate(email, {});
 			expect(valid).toBeFalsy();

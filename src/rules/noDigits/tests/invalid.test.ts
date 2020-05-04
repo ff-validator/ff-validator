@@ -8,9 +8,9 @@ import { noDigits } from '../index';
 // Rule
 // -----------------------------------------------------------------------------
 
-describe('Should be invalid', () => {
+describe('Invalid noDigits', () => {
 	['Petr 1', 'dfg4sdf', '16x9'].forEach((content, i) => {
-		it(`test #${++i}: ${content}`, () => {
+		test(`test #${++i}: ${content}`, () => {
 			const validate = noDigits('error');
 			const { valid, errorMessage } = validate(content, {});
 			expect(valid).toBeFalsy();

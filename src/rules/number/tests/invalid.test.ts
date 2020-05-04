@@ -8,9 +8,9 @@ import { number } from '../index';
 // Rule
 // -----------------------------------------------------------------------------
 
-describe('Should be invalid', () => {
+describe('Invalid number', () => {
 	['100,345', '99xx'].forEach((content, i) => {
-		it(`test #${++i}: ${content}`, () => {
+		test(`test #${++i}: ${content}`, () => {
 			const validate = number('error');
 			const { valid, errorMessage } = validate(content, {});
 			expect(valid).toBeFalsy();

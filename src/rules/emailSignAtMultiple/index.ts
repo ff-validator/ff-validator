@@ -2,7 +2,7 @@
 // Deps
 // -----------------------------------------------------------------------------
 
-import { isValid, isString, IValidFn } from '../../core';
+import { isString, isValid, IValidFn } from '../../core';
 
 // -----------------------------------------------------------------------------
 // Rule
@@ -11,4 +11,4 @@ import { isValid, isString, IValidFn } from '../../core';
 export const emailSignAtMultiple = (errorMessage: string): IValidFn => (
 	value,
 	allValues
-) => isValid(isString(value) && value.split('@').length <= 2, errorMessage);
+) => isValid(isString(value) && value.spltest('@').length <= 2, errorMessage);

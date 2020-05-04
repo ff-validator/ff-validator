@@ -10,7 +10,7 @@ import { emailSignAtMultiple } from '../index';
 
 describe('Invalid multiple usage of "@" in emails', () => {
 	['site@demo@site.com'].forEach((email, i) => {
-		it(`test #${++i}: ${email}`, () => {
+		test(`test #${++i}: ${email}`, () => {
 			const validate = emailSignAtMultiple('error');
 			const { valid, errorMessage } = validate(email, {});
 			expect(valid).toBeFalsy();

@@ -10,7 +10,7 @@ import { emailDomain } from '../index';
 
 describe('Invalid domain names in emails', () => {
 	['site@mail', 'site@mail-com', 'site@m.m'].forEach((email, i) => {
-		it(`test #${++i}: ${email}`, () => {
+		test(`test #${++i}: ${email}`, () => {
 			const validate = emailDomain('error');
 			const { valid, errorMessage } = validate(email, {});
 			expect(valid).toBeFalsy();

@@ -16,7 +16,7 @@ describe('Invalid dots in emails', () => {
 		'site@mail...com',
 		'si...te@mail.com'
 	].forEach((email, i) => {
-		it(`test #${++i}: ${email}`, () => {
+		test(`test #${++i}: ${email}`, () => {
 			const validate = emailDot('error');
 			const { valid, errorMessage } = validate(email, {});
 			expect(valid).toBeFalsy();
