@@ -2,11 +2,11 @@
 // Deps
 // -----------------------------------------------------------------------------
 
-import { isValid, IValidFn } from '../../core';
+import { isNumber, isValid, IValidFn } from '../../core';
 
 // -----------------------------------------------------------------------------
 // Rule
 // -----------------------------------------------------------------------------
 
 export const min = (errorMessage: string, min: number): IValidFn => (value, allValues) =>
-	isValid(value >= min, errorMessage);
+	isValid(isNumber(value) && value >= min, errorMessage);

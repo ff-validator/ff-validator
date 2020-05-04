@@ -2,11 +2,11 @@
 // Deps
 // -----------------------------------------------------------------------------
 
-import { isValid, IValidFn } from '../../core';
+import { isNumber, isValid, IValidFn } from '../../core';
 
 // -----------------------------------------------------------------------------
 // Rule
 // -----------------------------------------------------------------------------
 
 export const max = (errorMessage: string, max: number): IValidFn => (value, allValues) =>
-	isValid(value <= max, errorMessage);
+	isValid(isNumber(value) && value <= max, errorMessage);
