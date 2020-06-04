@@ -1,6 +1,6 @@
 {
   "name": "ff-validator",
-  "version": "0.2.3-beta",
+  "version": "0.3.0-beta",
   "description": "Customizable validation rules",
   "main": "dist/fieldValidator.js",
   "files": [
@@ -78,5 +78,9 @@
     "prettier": "^2.0.5",
     "ts-jest": "^25.4.0",
     "typescript": "^3.8.3"
+  },
+  "dependencies": {
+    "@types/lodash.get": "^4.4.6",
+    "lodash.get": "^4.4.2"
   }
 }

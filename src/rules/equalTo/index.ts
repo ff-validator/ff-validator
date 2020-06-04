@@ -2,7 +2,7 @@
 // Deps
 // -----------------------------------------------------------------------------
 
-import { isValid, IValidFn } from '../../core';
+import { _get, isValid, IValidFn } from '../../core';
 
 // -----------------------------------------------------------------------------
 // Rule
@@ -11,4 +11,4 @@ import { isValid, IValidFn } from '../../core';
 export const equalTo = (errorMessage: string, name: string): IValidFn => (
 	value,
 	allValues
-) => isValid(value === allValues[name], errorMessage);
+) => isValid(value === _get(allValues, name), errorMessage);
