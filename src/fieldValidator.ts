@@ -2,8 +2,12 @@
 // Deps
 // -----------------------------------------------------------------------------
 
-import { IValidFn } from './core';
+import { _get, IValidFn } from './core';
 import { requiredRuleName } from './rules/required';
+import {
+	requiredIfCheckedRuleName,
+	requiredIfCheckerName
+} from './rules/requiredIfChecked';
 
 // -----------------------------------------------------------------------------
 // field validator
@@ -31,8 +35,14 @@ export default function <GValue = any, GAllValues = GValue, GMeta = GValue>(
 		let hasRequiredRule = false;
 		const length = rules.length;
 		for (let i = 0; i < length; i++) {
-			if (rules[i].ruleName === requiredRuleName) {
+			const { ruleName, details } = rules[i];
+			if (ruleName === requiredRuleName) {
 				hasRequiredRule = true;
+				break;
+			} else if (ruleName === requiredIfCheckedRuleName && details != null) {
+				const checkerName = details[requiredIfCheckerName] as string;
+				const checked = _get(allValues, checkerName);
+				hasRequiredRule = !!checked;
 				break;
 			}
 		}

@@ -23,6 +23,6 @@ export const required = (errorMessage: string): IValidFn => {
 		return isValid(!!value, errorMessage);
 	};
 
-	rule.ruleName = 'required';
+	rule.ruleName = requiredRuleName;
 	return rule;
 };
