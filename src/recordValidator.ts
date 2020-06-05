@@ -13,15 +13,15 @@ interface IPlainObject<GValue = any> {
 	[p: string]: GValue;
 }
 
-export default async function <GValue = any, GAllValues = GValue, GMeta = GValue>(
+export default function <GValue = any, GAllValues = GValue, GMeta = GValue>(
 	allValues: IPlainObject,
 	allRules: IPlainObject<(IValidFn | null)[]>
-): Promise<{ [p: string]: string }> {
+): { [p: string]: string } {
 	const errors: IPlainObject<string> = {};
 	for (const name in allRules) {
 		if (allRules.hasOwnProperty(name)) {
 			const validator = fieldValidator<GValue, GAllValues, GMeta>(allRules[name]);
-			const errorMessage = await validator(allValues[name], allValues);
+			const errorMessage = validator(allValues[name], allValues);
 			if (errorMessage !== undefined) {
 				errors[name] = errorMessage;
 			}

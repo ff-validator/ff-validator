@@ -1,23 +1,157 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>ff-validator</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="stylesheet" href="https://unpkg.com/microbe-ui@2.1.0/dist/bundle-all.css">
-</head>
-<body>
-    <div class="center">
-        <h1><code>ff-validator</code></h1>
-        <p>GitHub <a href="https://github.com/ff-validator/ff-validator"> repo ►</a></p>
-        <hr>
+	<head>
+		<meta charset="UTF-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+		/>
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>ff-validator</title>
+		<link rel="stylesheet" href="./assets/style.css" />
+		<link rel="stylesheet" href="./assets/prism.css" />
+		<link
+			rel="stylesheet"
+			href="https://unpkg.com/microbe-ui@2.1.0/dist/bundle-all.css"
+		/>
+	</head>
+	<body>
+		<div class="center">
+			<h1><code>ff-validator</code></h1>
+			<p class="badges">
+				<img
+					src="https://camo.githubusercontent.com/690de64e44d7f65ed98aa07380f959038e19eb71/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f74797065732d547970655363726970742d626c7565"
+					alt="Typescript support badge"
+					data-canonical-src="https://img.shields.io/badge/types-TypeScript-blue"
+					style="max-width: 100%;"
+				/>
+				<a href="https://github.com/ff-validator/ff-validator/blob/master/LICENSE"
+					><img
+						src="https://camo.githubusercontent.com/7a7e9bb66e69953d2944b838395ade52d1587c98/68747470733a2f2f696d672e736869656c64732e696f2f6769746875622f6c6963656e73652f66662d76616c696461746f722f66662d76616c696461746f72"
+						alt="License MIT badge"
+						data-canonical-src="https://img.shields.io/github/license/ff-validator/ff-validator"
+						style="max-width: 100%;"
+				/></a>
+				<a href="https://www.npmjs.com/package/ff-validator" rel="nofollow"
+					><img
+						src="https://camo.githubusercontent.com/9f0196ae4a90d430587247cf9ffb8ffbe629807c/68747470733a2f2f696d672e736869656c64732e696f2f62616467652f6e706d2d696e7374616c6c2d6f72616e67652e737667"
+						alt="NPM package badge"
+						data-canonical-src="https://img.shields.io/badge/npm-install-orange.svg"
+						style="max-width: 100%;"
+				/></a>
+				<a
+					target="_blank"
+					rel="noopener noreferrer"
+					href="https://github.com/ff-validator/ff-validator/workflows/Test%20and%20Build/badge.svg"
+					><img
+						src="https://github.com/ff-validator/ff-validator/workflows/Test%20and%20Build/badge.svg"
+						alt="Test and Build status badge"
+						style="max-width: 100%"
+				/></a>
+			</p>
 
-        <h2>Install</h2>
-        <pre>npm install ff-validator</pre>
-        <hr>
-    </div>
-</body>
+			<div class="cover">
+				<img
+					width="1280"
+					height="640"
+					src="https://repository-images.githubusercontent.com/260410608/cfc5d380-8ba3-11ea-81b6-6b91c969f5d4"
+					alt="FFValidator. Customizable validation rules"
+				/>
+			</div>
+
+			<hr />
+
+			<h2 id="anchor-toc">Table of Contents</h2>
+
+			<ol>
+				<li><a href="#anchor-install">Install</a></li>
+				<li>
+					<a href="#anchor-rules">Rules</a>
+					<ol>
+						<li><a href="#anchor-rule-required">required</a></li>
+					</ol>
+				</li>
+				<li><a href="#anchor-github">GutHub</a></li>
+			</ol>
+			<hr />
+
+			<h2 id="anchor-install">
+				<a href="#anchor-install" aria-hidden="true" aria-label="anchor">#</a>
+				Install
+			</h2>
+			<pre>
+            <code class="lang-shell">
+                npm install ff-validator
+            </code>
+        </pre>
+			<hr />
+
+			<h2 id="anchor-rules">
+				<a href="#anchor-rules" aria-hidden="true" aria-label="anchor">#</a>
+				Rules
+			</h2>
+
+			<h3 id="anchor-rule-required">
+				<a href="#anchor-rule-required" aria-hidden="true" aria-label="anchor"
+					>#</a
+				>
+				required
+			</h3>
+
+			<p>Check the field is valid if it matters</p>
+			<h4>Invalid cases:</h4>
+			<ol>
+				<li><code>undefined</code></li>
+				<li><code>null</code></li>
+				<li><code>false</code> - falsy boolean</li>
+				<li><code>NaN</code> - not a number</li>
+				<li><code>[]</code> - empty array</li>
+				<li><code>""</code> - empty string</li>
+			</ol>
+
+			<h4>Valid cases:</h4>
+			<ul>
+				<li><code>true</code> - truthy boolean</li>
+				<li><code>{}</code> - any instance of Object</li>
+				<li><code>0</code> / <code>"0"</code> - zero has matter as value</li>
+				<li>
+					any other value that will be true in a logical transformation, e.g.
+					<code>!!myValue</code>
+				</li>
+			</ul>
+
+			<h4>Usage</h4>
+			<pre>
+                <code class="lang-js">
+                    import { required } from 'ff-validator/dist/rules/required';
+                    const myRequiredRule = required('My custom error message');
+
+                    // invalid cases             // valid cases
+                    myRequiredRule();            myRequiredRule(true);
+                    myRequiredRule(null);        myRequiredRule({});
+                    myRequiredRule(false);       myRequiredRule(0);
+                    myRequiredRule(NaN);         myRequiredRule('0');
+                    myRequiredRule([]);
+                    myRequiredRule('');
+                </code>
+            </pre>
+			<hr />
+
+			<h2 id="anchor-github">
+				<a href="#anchor-github" aria-hidden="true" aria-label="anchor">#</a>
+				GitHub
+			</h2>
+			<p>
+				<a
+					href="https://github.com/ff-validator/ff-validator"
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					https://github.com/ff-validator/ff-validator
+				</a>
+			</p>
+			<hr />
+		</div>
+		<script src="./assets/prism.js"></script>
+	</body>
 </html>

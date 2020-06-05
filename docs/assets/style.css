@@ -8,7 +8,7 @@ body {
 	margin: 2rem 0;
 }
 
-code {
+code:not([class*="language-"]) {
 	font-family: monospace, monospace;
 	padding: 0.2em 0.4em;
 	margin: 0;
@@ -17,7 +17,7 @@ code {
 	border-radius: 0.25em;
 }
 
-pre {
+pre:not([class*="language-"]) {
 	font-family: monospace, monospace;
 	padding: 1rem;
 	overflow: auto;
@@ -30,7 +30,7 @@ pre {
 hr {
 	border-width: 0;
 	border-top: 1px solid currentColor;
-	opacity: .25;
+	opacity: 0.25;
 	margin: 1.5rem 0 2.5rem;
 }
 
@@ -44,6 +44,33 @@ a:hover {
 
 a:active {
 	color: black;
+}
+
+:target {
+	background: yellow;
+}
+
+.badges {
+	min-height: 22px;
+}
+
+.badges img {
+	display: inline-block;
+	vertical-align: top;
+}
+
+.cover {
+	padding-top: 50%;
+	position: relative;
+	background: #031c32;
+}
+
+.cover img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: auto;
 }
 
 .center {
