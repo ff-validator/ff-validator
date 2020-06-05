@@ -14,9 +14,9 @@ import {
 // -----------------------------------------------------------------------------
 
 interface IFieldValidatorFn<GValue = any, GAllValues = GValue, GMeta = GValue> {
-	(value: GValue, allValues: { [p: string]: GAllValues }, ...meta: GMeta[]): Promise<
-		string | undefined
-	>;
+	(value: GValue, allValues: { [p: string]: GAllValues }, ...meta: GMeta[]):
+		| string
+		| undefined;
 }
 
 const hasValue = (value: any) => {
@@ -30,7 +30,7 @@ export default function <GValue = any, GAllValues = GValue, GMeta = GValue>(
 	rulesList: (IValidFn | null)[]
 ): IFieldValidatorFn<GValue, GAllValues, GMeta> {
 	const rules: IValidFn[] = rulesList.filter((rule) => rule != null) as IValidFn[];
-	return async (value, allValues, ...meta) => {
+	return (value, allValues, ...meta) => {
 		let result: string | undefined;
 		let hasRequiredRule = false;
 		const length = rules.length;
@@ -48,8 +48,8 @@ export default function <GValue = any, GAllValues = GValue, GMeta = GValue>(
 		}
 		if (hasValue(value) || hasRequiredRule) {
 			for (let i = 0; i < length; i++) {
-				const { valid, errorMessage } = await rules[i](value, allValues, meta);
-				if (valid === false) {
+				const { valid, errorMessage } = rules[i](value, allValues, meta);
+				if (!valid) {
 					result = errorMessage || 'Error!';
 					break;
 				}
