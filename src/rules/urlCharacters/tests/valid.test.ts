@@ -11,6 +11,8 @@ import { urlCharacters } from '../index';
 describe('Valid url characters', () => {
 	[
 		'https://stackoverflow.com/questions/1856785/characters-allowed-in-a-url',
+		'https://play.google.com/store/apps/details?id=com.skgames.trafficracer%22',
+		'http://user:pass@google.com/?a=b#asdd',
 		'/index',
 		'translations?tab=1',
 		'/content.html#anchor-readme'
