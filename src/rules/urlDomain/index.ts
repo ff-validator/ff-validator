@@ -10,6 +10,6 @@ import { isValid, IValidFn } from '../../core';
 
 export const urlDomain = (errorMessage: string): IValidFn => (value, allValues) =>
 	isValid(
-		/^(?:https?:\/\/|\/\/)?(?:[^@\/\n]+@)?(?:www\.)?([^:\/?\n]+)/.test(value),
+		/^(?:https?:\/\/|\/\/)[a-z0-9-][a-z0-9-.@:]*\.[a-z]{2,}/i.test(value),
 		errorMessage
 	);
