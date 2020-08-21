@@ -2,7 +2,7 @@
 // Deps
 // -----------------------------------------------------------------------------
 
-import { get } from 'lodash';
+import { getIn } from 'plain-object-helpers/dist/get-in';
 
 // -----------------------------------------------------------------------------
 // Types
@@ -39,4 +39,4 @@ export const isNumber = (value: any): value is number => {
 	return false;
 };
 
-export const _get = get;
+export const _get = getIn;
